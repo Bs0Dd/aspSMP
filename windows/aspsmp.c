@@ -181,7 +181,7 @@ unsigned char       init_byte = INITBYTE;
       if (val == -1) val = CHUNK_SIZE;
       if ( (val<8) || (val>4096) ) {
         if (debug) {
-          printf("Illegal USB chunk size %d. Default value %d wil be used\n",val,CHUNK_SIZE);
+          printf("Illegal USB chunk size %d. Default value %d will be used\n",val,CHUNK_SIZE);
         }
         val = CHUNK_SIZE;
       }
@@ -192,7 +192,7 @@ unsigned char       init_byte = INITBYTE;
       if (val == -1) val = CARDSIZE;
       if ( (val<1) || (val>MAXCARDSIZE) ) {
         if (debug) {
-          printf("Illegal card size %d. Default value %d wil be used\n",val,CARDSIZE);
+          printf("Illegal card size %d. Default value %d will be used\n",val,CARDSIZE);
         }
         val = CARDSIZE;
       }
@@ -203,7 +203,7 @@ unsigned char       init_byte = INITBYTE;
       if (val == -1) val = INITBYTE;
       if ( (val<0) || (val>255) ) {
         if (debug) {
-          printf("Illegal init byte %d. Default value %d wil be used\n",val,INITBYTE);
+          printf("Illegal init byte %d. Default value %d will be used\n",val,INITBYTE);
         }
         val = INITBYTE;
       }
