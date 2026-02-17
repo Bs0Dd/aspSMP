@@ -1,0 +1,47 @@
+This is the Readme file for SMPReaderUSB host program.
+
+  README .............. The file you are currently reading.
+
+  smpusb.c ............ Main host code
+  opendevice.c ........ common functions for USB device opening
+  opendevice.h ........ common functions for USB device opening
+  smpusb.vcproj ....... Microsoft Visual C project file
+  smpusb.sln .......... Microsoft Visual solution file
+  stdafx.cpp .......... precompiled header file
+  stdafx.h ............ precompiled header file
+  targetver.h ......... Windows version definition 
+  
+
+PREREQUISITES
+=============
+
+Host side program are compiled with Microsoft Visual Studio C/C++ for Windows platform.
+
+Project depend on libusb. Libusb is available from
+
+http://libusb.sourceforge.net/ for Unix and
+http://libusb-win32.sourceforge.net/ for Windows.
+
+COMPILATION
+===========
+
+1. Install libusb-win32
+2. Open smpusb.vcproj project in Visual Studio, open project "Properties"
+3. Choose "C/C++", modify "Additional Include Directories" to point to 
+   <Libusb-Win32-install-dir>/include
+4. Press OK
+5. Delete "libusb.lib" form solution explorer tree
+6. Press left mouse button at project and choose "Add"->"Existing Item",
+   than choose <Libusb-Win32-install-dir>/lib/msvc/libusb.lib
+
+LICENSE
+=======
+SMPReader, V-USB and related code is distributed under the terms of the 
+GNU General Public License (GPL) version 2 (see License.txt for details) 
+and the GNU General Public License (GPL) version 3. It is your choice whether 
+you apply the terms of version 2 or version 3. 
+
+----------------------------------------------------------------------------
+(c) 2009 by Ilya V. Danilov.
+http://mk90.blogspot.com
+

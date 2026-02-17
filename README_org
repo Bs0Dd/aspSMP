@@ -1,0 +1,77 @@
+This is the Readme file for SMPReaderUSB project and code. It uses Objective
+Development's firmware-only USB driver for Atmel's(r) AVR(r) microcontrollers 
+- V-USB. For more information please visit http://www.obdev.at/vusb/.
+
+FILES
+=====
+
+  README .............. The file you are currently reading.
+  /software ........... SMPReaderUSB sources for PC-based host.
+
+  smpreaderusb.c ...... Main firmware code
+
+  smpreaderusb.aws .... AVR Studio project file
+  smpreaderusb.aps .... AVR Studio project file
+  Makefile ............ for Project building through make
+  make_config.h ....... External constants - only for F_CPU - clock definition
+  requests.h  ......... USB request constant definitions
+  usbconfig.h ......... Custom V-USB config, see comments inside code for
+                        details
+  usbdrv.c............. V-USB core, included into the SMPReaderUSB project
+  usbdrv.h              -- / --
+  usbdrvasm.asm         -- / --
+  usbdrvasm.S           -- / --
+  usbdrvasm12.inc       -- / --
+  usbdrvasm128.inc      -- / --
+  usbdrvasm15.inc       -- / --
+  usbdrvasm16.inc       -- / --
+  usbdrvasm165.inc      -- / --
+  usbdrvasm18-crc.inc   -- / --
+  usbdrvasm20.inc       -- / --
+  usbportability.h      -- / --
+  asmcommon.inc         -- / --
+  oddebug.c ........... Debug macro
+  oddebug.h ........... Debug macro
+
+
+
+Each subdirectory contains a separate Readme file which explains its
+contents.
+
+PREREQUISITES
+=============
+SMPReaderUSB is written in C and assembler. You need either avr-gcc or IAR CC 
+to compile the project. I recommend avr-gcc because it
+is free and easily available. Gcc version 3 generates slightly more
+efficient code than version 4. Not every release is tested with
+the IAR compiler. 
+
+Ready made avr-gcc tool chains are available for most operating systems:
+  * Windows: WinAVR http://winavr.sourceforge.net/
+  * Mac: CrossPack for AVR Development http://www.obdev.at/crosspack/
+  * Linux and other Unixes: Most free Unixes have optional packages for AVR
+    development. If not, follow the instructions at
+    http://www.nongnu.org/avr-libc/user-manual/install_tools.html
+
+Host side program are compiled with Microsoft Visual Studio C/C++ for Windows platform.
+
+Project depend on libusb. Libusb is available from
+
+http://libusb.sourceforge.net/ for Unix and
+http://libusb-win32.sourceforge.net/ for Windows.
+
+TECHNICAL DOCUMENTATION
+=======================
+See all details in my russian blog at http://mk90.blogspot.com.
+
+LICENSE
+=======
+SMPReader, V-USB and related code is distributed under the terms of the 
+GNU General Public License (GPL) version 2 (see License.txt for details) 
+and the GNU General Public License (GPL) version 3. It is your choice whether 
+you apply the terms of version 2 or version 3. 
+
+----------------------------------------------------------------------------
+(c) 2009 by Ilya V. Danilov.
+http://mk90.blogspot.com
+

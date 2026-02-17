@@ -1,0 +1,453 @@
+
+usbdrv.c,2970
+uchar usbRxBuf[usbRxBuf24,732
+uchar       usbInputBufOffset;25,816
+uchar       usbDeviceAddr;26,902
+uchar       usbNewDeviceAddr;27,983
+uchar       usbConfiguration;28,1070
+volatile schar usbRxLen;29,1179
+uchar       usbCurrentTok;30,1285
+uchar       usbRxToken;31,1389
+volatile uchar usbTxLen 32,1486
+uchar       usbTxBuf[usbTxBuf33,1598
+volatile uchar  usbSofCount;35,1729
+usbTxStatus_t  usbTxStatus1;38,1880
+usbTxStatus_t  usbTxStatus3;40,1946
+uchar       usbCurrentDataToken;44,2024
+uchar               *usbMsgPtr;usbMsgPtr48,2180
+static usbMsgLen_t  usbMsgLen 49,2266
+static uchar        usbMsgFlags;50,2342
+#define USB_FLG_MSGPTR_IS_ROM 52,2407
+#define USB_FLG_USE_USER_RW 53,2446
+#undef USB_CFG_DESCR_PROPS_STRING_068,2953
+#define USB_CFG_DESCR_PROPS_STRING_0 69,2989
+const PROGMEM char usbDescriptorString0[usbDescriptorString070,3058
+#undef USB_CFG_DESCR_PROPS_STRING_VENDOR78,3390
+#define USB_CFG_DESCR_PROPS_STRING_VENDOR 79,3431
+const PROGMEM int  usbDescriptorStringVendor[usbDescriptorStringVendor80,3509
+#undef USB_CFG_DESCR_PROPS_STRING_PRODUCT87,3725
+#define USB_CFG_DESCR_PROPS_STRING_PRODUCT 88,3767
+const PROGMEM int  usbDescriptorStringDevice[usbDescriptorStringDevice89,3846
+#undef USB_CFG_DESCR_PROPS_STRING_SERIAL_NUMBER96,4070
+#define USB_CFG_DESCR_PROPS_STRING_SERIAL_NUMBER 97,4118
+const PROGMEM int usbDescriptorStringSerialNumber[usbDescriptorStringSerialNumber98,4210
+#undef USB_CFG_DESCR_PROPS_DEVICE109,4529
+#define USB_CFG_DESCR_PROPS_DEVICE 110,4563
+const PROGMEM char usbDescriptorDevice[usbDescriptorDevice111,4627
+#undef USB_CFG_DESCR_PROPS_HID135,5803
+#define USB_CFG_DESCR_PROPS_HID 136,5834
+#undef USB_CFG_DESCR_PROPS_CONFIGURATION140,5983
+#define USB_CFG_DESCR_PROPS_CONFIGURATION 141,6024
+const PROGMEM char usbDescriptorConfiguration[usbDescriptorConfiguration142,6103
+static inline void  usbResetDataToggling(197,8798
+static inline void  usbResetStall(207,9162
+static void usbGenericSetInterrupt(221,9524
+USB_PUBLIC void usbSetInterrupt(245,10429
+USB_PUBLIC void usbSetInterrupt3(252,10585
+#   define SWITCH_START(267,11103
+#   define SWITCH_CASE(268,11152
+#   define SWITCH_CASE2(269,11210
+#   define SWITCH_CASE3(270,11275
+#   define SWITCH_DEFAULT 271,11350
+#   define SWITCH_END 272,11403
+#   define SWITCH_START(274,11447
+#   define SWITCH_CASE(275,11508
+#   define SWITCH_CASE2(276,11570
+#   define SWITCH_CASE3(277,11645
+#   define SWITCH_DEFAULT 278,11736
+#   define SWITCH_END 279,11778
+#define USB_RX_USER_HOOK(283,11849
+#define USB_SET_ADDRESS_HOOK(286,11921
+#define GET_DESCRIPTOR(296,12273
+static inline usbMsgLen_t usbDriverDescriptor(311,12941
+static inline usbMsgLen_t usbDriverSetup(362,15125
+static inline void usbProcessRx(422,17586
+static uchar usbDeviceRead(492,20656
+static inline void usbBuildTxBlock(524,21652
+static inline void usbHandleResetHook(550,22453
+USB_PUBLIC void usbPoll(565,22792
+USB_PUBLIC void usbInit(607,24123
+
+windows/targetver.h,29
+#define _WIN32_WINNT 11,645
+
+windows/opendevice.h,393
+#define __OPENDEVICE_H_INCLUDED__24,918
+#define USBOPEN_SUCCESS 63,3329
+#define USBOPEN_ERR_ACCESS 64,3380
+#define USBOPEN_ERR_IO 65,3460
+#define USBOPEN_ERR_NOTFOUND 66,3512
+#define USB_VID_OBDEV_SHARED 71,3636
+#define USB_PID_OBDEV_SHARED_CUSTOM 72,3711
+#define USB_PID_OBDEV_SHARED_HID 73,3797
+#define USB_PID_OBDEV_SHARED_CDCACM 74,3891
+#define USB_PID_OBDEV_SHARED_MIDI 75,3974
+
+windows/smpusb.c,397
+#define strcasecmp 36,1064
+#define CARDSIZE 38,1092
+#define MAXCARDSIZE 39,1118
+#define CHUNK_SIZE 40,1144
+unsigned char       debug 42,1170
+int get_opt_key 44,1202
+int get_opt_int 52,1349
+char *get_opt_string(get_opt_string62,1539
+static void usage(69,1715
+int get_voltage(83,2389
+int compare_buffers(108,3150
+int output_buffer(130,3837
+int input_buffer(142,4118
+int main(154,4397
+
+windows/opendevice.c,219
+#define MATCH_SUCCESS	22,612
+#define MATCH_FAILED	23,638
+#define MATCH_ABORT	24,663
+static int  _shellStyleMatch(27,785
+static int shellStyleMatch(77,2406
+int usbGetStringAscii(86,2689
+int usbOpenDevice(116,3692
+
+usbdrv.h,5296
+#define __usbdrv_h_included__12,420
+#define USBDRV_VERSION 125,6303
+#define USB_PUBLIC135,6686
+#define uchar 146,7129
+#define schar 149,7180
+#   define usbMsgLen_t 154,7349
+#   define usbMsgLen_t 156,7387
+#define USB_NO_MSG 164,7779
+#define usbInterruptIsReady(225,11047
+#define usbInterruptIsReady3(232,11385
+#define usbHidReportDescriptor 237,11619
+#define usbDeviceConnect(287,14492
+#define usbDeviceDisconnect(289,14651
+#define usbDeviceConnect(292,14850
+#define usbDeviceDisconnect(293,14909
+#define usbCrc16(308,15800
+#define usbCrc16Append(316,16242
+#define USB_STRING_DESCRIPTOR_HEADER(351,17770
+#define usbDisableAllRequests(357,18058
+#define usbEnableAllRequests(362,18292
+#define usbAllRequestsAreDisabled(366,18501
+#define USB_SET_DATATOKEN1(373,18729
+#define USB_SET_DATATOKEN3(374,18786
+#define USB_PROP_IS_DYNAMIC 391,19554
+#define USB_PROP_IS_RAM 397,19846
+#define USB_PROP_LENGTH(402,20064
+#define USB_CFG_DESCR_PROPS_DEVICE 409,20302
+#define USB_CFG_DESCR_PROPS_CONFIGURATION 412,20405
+#define USB_CFG_DESCR_PROPS_STRINGS 415,20502
+#define USB_CFG_DESCR_PROPS_STRING_0 418,20600
+#define USB_CFG_DESCR_PROPS_STRING_VENDOR 421,20703
+#define USB_CFG_DESCR_PROPS_STRING_PRODUCT 424,20807
+#define USB_CFG_DESCR_PROPS_STRING_SERIAL_NUMBER 427,20917
+#define USB_CFG_DESCR_PROPS_HID 430,21010
+#   undef USB_CFG_DESCR_PROPS_HID_REPORT433,21109
+#       define USB_CFG_DESCR_PROPS_HID_REPORT 435,21238
+#       define USB_CFG_DESCR_PROPS_HID_REPORT 437,21336
+#define USB_CFG_DESCR_PROPS_UNKNOWN 441,21443
+#define USB_CONCAT(497,22819
+#define USB_CONCAT_EXPANDED(498,22862
+#define USB_OUTPORT(500,22916
+#define USB_INPORT(501,22975
+#define USB_DDRPORT(502,23033
+#   define  USB_CFG_VENDOR_ID 520,23826
+#       define USB_CFG_DEVICE_ID 525,23983
+#       define USB_CFG_DEVICE_ID 527,24108
+#       define USB_CFG_DEVICE_ID 529,24210
+#define USBOUT 538,24500
+#define USB_PULLUP_OUT 539,24556
+#define USBIN 540,24619
+#define USBDDR 541,24674
+#define USB_PULLUP_DDR 542,24730
+#define USBMINUS 544,24794
+#define USBPLUS 545,24833
+#define USBIDLE 546,24871
+#define USBMASK 547,24948
+#define USB_CFG_IOPORT 550,25118
+#define USB_CFG_PULLUP_IOPORT 552,25215
+#define USB_CFG_EP3_NUMBER 556,25358
+#define USB_CFG_HAVE_INTRIN_ENDPOINT3 560,25434
+#define USB_BUFSIZE 563,25484
+#       define USB_INTR_CFG 569,25719
+#       define USB_INTR_CFG 571,25762
+#       define USB_INTR_CFG_SET 576,25937
+#       define USB_INTR_CFG_SET 581,26171
+#   define USB_INTR_CFG_CLR 585,26347
+#       define USB_INTR_ENABLE 590,26501
+#       define USB_INTR_ENABLE 592,26562
+#       define USB_INTR_ENABLE 594,26609
+#   define USB_INTR_ENABLE_BIT 598,26732
+#       define USB_INTR_PENDING 603,26867
+#       define USB_INTR_PENDING 605,26913
+#   define USB_INTR_PENDING_BIT 609,27040
+#define USBPID_SETUP 629,27763
+#define USBPID_OUT 630,27792
+#define USBPID_IN 631,27821
+#define USBPID_DATA0 632,27850
+#define USBPID_DATA1 633,27879
+#define USBPID_ACK 635,27909
+#define USBPID_NAK 636,27938
+#define USBPID_STALL 637,27967
+#define USB_INITIAL_DATATOKEN 640,28027
+typedef struct usbTxStatus{usbTxStatus645,28103
+    volatile uchar   len;646,28131
+    uchar   buffer[buffer647,28157
+}usbTxStatus_t;usbTxStatus_t648,28190
+#define usbTxLen1 651,28258
+#define usbTxBuf1 652,28295
+#define usbTxLen3 653,28335
+#define usbTxBuf3 654,28372
+typedef union usbWord{usbWord657,28414
+    unsigned    word;658,28437
+    uchar       bytes[bytes659,28459
+}usbWord_t;usbWord_t660,28485
+typedef struct usbRequest{usbRequest662,28498
+    uchar       bmRequestType;663,28525
+    uchar       bRequest;664,28556
+    usbWord_t   wValue;665,28582
+    usbWord_t   wIndex;666,28606
+    usbWord_t   wLength;667,28630
+}usbRequest_t;usbRequest_t668,28655
+#define USBRQ_RCPT_MASK 680,29010
+#define USBRQ_RCPT_DEVICE 681,29047
+#define USBRQ_RCPT_INTERFACE 682,29081
+#define USBRQ_RCPT_ENDPOINT 683,29115
+#define USBRQ_TYPE_MASK 686,29180
+#define USBRQ_TYPE_STANDARD 687,29217
+#define USBRQ_TYPE_CLASS 688,29256
+#define USBRQ_TYPE_VENDOR 689,29295
+#define USBRQ_DIR_MASK 692,29363
+#define USBRQ_DIR_HOST_TO_DEVICE 693,29404
+#define USBRQ_DIR_DEVICE_TO_HOST 694,29447
+#define USBRQ_GET_STATUS 697,29519
+#define USBRQ_CLEAR_FEATURE 698,29553
+#define USBRQ_SET_FEATURE 699,29587
+#define USBRQ_SET_ADDRESS 700,29621
+#define USBRQ_GET_DESCRIPTOR 701,29655
+#define USBRQ_SET_DESCRIPTOR 702,29689
+#define USBRQ_GET_CONFIGURATION 703,29723
+#define USBRQ_SET_CONFIGURATION 704,29757
+#define USBRQ_GET_INTERFACE 705,29791
+#define USBRQ_SET_INTERFACE 706,29826
+#define USBRQ_SYNCH_FRAME 707,29861
+#define USBDESCR_DEVICE 710,29928
+#define USBDESCR_CONFIG 711,29962
+#define USBDESCR_STRING 712,29996
+#define USBDESCR_INTERFACE 713,30030
+#define USBDESCR_ENDPOINT 714,30064
+#define USBDESCR_HID 715,30098
+#define USBDESCR_HID_REPORT 716,30135
+#define USBDESCR_HID_PHYS 717,30172
+#define USBATTR_BUSPOWER 719,30210
+#define USBATTR_SELFPOWER 720,30247
+#define USBATTR_REMOTEWAKE 721,30284
+#define USBRQ_HID_GET_REPORT 724,30345
+#define USBRQ_HID_GET_IDLE 725,30382
+#define USBRQ_HID_GET_PROTOCOL 726,30419
+#define USBRQ_HID_SET_REPORT 727,30456
+#define USBRQ_HID_SET_IDLE 728,30493
+#define USBRQ_HID_SET_PROTOCOL 729,30530
+
+make_config.h,20
+#define F_CPU	2,39
+
+usbconfig.h,1960
+#define __usbconfig_h_included__12,439
+#define USB_CFG_IOPORTNAME 26,1002
+#define USB_CFG_DMINUS_BIT 30,1174
+#define USB_CFG_DPLUS_BIT 34,1328
+#define USB_CFG_CHECK_CRC 50,2250
+#define USB_CFG_HAVE_INTRIN_ENDPOINT 73,3299
+#define USB_CFG_HAVE_INTRIN_ENDPOINT3 78,3513
+#define USB_CFG_EP3_NUMBER 84,3864
+#define USB_CFG_IMPLEMENT_HALT 94,4391
+#define USB_CFG_SUPPRESS_INTR_CODE 100,4704
+#define USB_CFG_INTR_POLL_INTERVAL 108,5189
+#define USB_CFG_IS_SELF_POWERED 113,5413
+#define USB_CFG_MAX_BUS_POWER 117,5577
+#define USB_CFG_IMPLEMENT_FN_WRITE 122,5826
+#define USB_CFG_IMPLEMENT_FN_READ 127,6035
+#define USB_CFG_IMPLEMENT_FN_WRITEOUT 133,6349
+#define USB_CFG_HAVE_FLOWCONTROL 139,6660
+#define USB_CFG_LONG_TRANSFERS 144,6868
+#define USB_COUNT_SOF 165,7982
+#define USB_CFG_CHECK_DATA_TOGGLING 189,9212
+#define USB_CFG_HAVE_MEASURE_FRAME_LENGTH 197,9704
+#define  USB_CFG_VENDOR_ID 204,9991
+#define  USB_CFG_DEVICE_ID 209,10258
+#define USB_CFG_DEVICE_VERSION 216,10632
+#define USB_CFG_VENDOR_NAME 220,10754
+#define USB_CFG_VENDOR_NAME_LEN 221,10855
+#define USB_CFG_DEVICE_NAME 231,11331
+#define USB_CFG_DEVICE_NAME_LEN 232,11407
+#define USB_CFG_SERIAL_NUMBER 237,11628
+#define USB_CFG_SERIAL_NUMBER_LEN 238,11690
+#define USB_CFG_DEVICE_CLASS 246,12085
+#define USB_CFG_DEVICE_SUBCLASS 247,12169
+#define USB_CFG_INTERFACE_CLASS 251,12324
+#define USB_CFG_INTERFACE_SUBCLASS 252,12411
+#define USB_CFG_INTERFACE_PROTOCOL 253,12449
+#define USB_CFG_DESCR_PROPS_DEVICE 324,15876
+#define USB_CFG_DESCR_PROPS_CONFIGURATION 325,15930
+#define USB_CFG_DESCR_PROPS_STRINGS 326,15984
+#define USB_CFG_DESCR_PROPS_STRING_0 327,16038
+#define USB_CFG_DESCR_PROPS_STRING_VENDOR 328,16092
+#define USB_CFG_DESCR_PROPS_STRING_PRODUCT 329,16146
+#define USB_CFG_DESCR_PROPS_STRING_SERIAL_NUMBER 330,16200
+#define USB_CFG_DESCR_PROPS_HID 331,16254
+#define USB_CFG_DESCR_PROPS_HID_REPORT 332,16308
+#define USB_CFG_DESCR_PROPS_UNKNOWN 333,16362
+
+usbportability.h,937
+#define __usbportability_h_INCLUDED__25,887
+#   define ENABLE_BIT_DEFINITIONS	34,1282
+#   define __ASSEMBLER__ 46,1543
+#   define PROGMEM 50,1648
+#   define PROGMEM 52,1684
+#define USB_READ_FLASH(55,1719
+#define cli(60,1908
+#define sei(61,1950
+#define wdt_reset(62,1991
+#define _BV(63,2030
+#define nop2 66,2099
+#define XL 67,2158
+#define XH 68,2178
+#define YL 69,2198
+#define YH 70,2218
+#define ZL 71,2238
+#define ZH 72,2258
+#define lo8(73,2278
+#define hi8(74,2301
+#define PROGMEM 96,3255
+#define USB_READ_FLASH(97,3295
+static inline void  cli(100,3376
+static inline void  sei(104,3427
+#define _delay_ms(109,3485
+#define _BV(110,3521
+#define USB_CFG_USE_SWITCH_STATEMENT 111,3556
+#define macro 113,3651
+#define endm 114,3674
+#define nop2 115,3700
+#   define _VECTOR(123,4028
+#define USB_READ_FLASH(128,4152
+#define macro 130,4205
+#define endm 131,4228
+#define nop2 132,4250
+#   define PRG_RDB(138,4415
+
+oddebug.h,843
+#define __oddebug_h_included__12,372
+#   define  F_CPU 28,922
+#   define  uchar 35,1060
+#   undef   DEBUG_LEVEL40,1242
+#   define  DEBUG_LEVEL 44,1294
+#   define  DBG1(50,1429
+#   define  DBG1(52,1498
+#   define  DBG2(56,1562
+#   define  DBG2(58,1631
+#   define  ODDBG_UBRR 69,1923
+#   define  ODDBG_UBRR 71,1972
+#   define  ODDBG_UBRR 73,2022
+#   define  ODDBG_UBRR 75,2073
+#   define  ODDBG_UCR 79,2128
+#   define  ODDBG_UCR 81,2176
+#   define  ODDBG_UCR 83,2227
+#   define  ODDBG_TXEN 87,2283
+#   define  ODDBG_TXEN 89,2318
+#   define  ODDBG_USR 93,2372
+#   define  ODDBG_USR 95,2420
+#   define  ODDBG_USR 97,2471
+#   define  ODDBG_UDRE 101,2527
+#   define  ODDBG_UDRE 103,2562
+#   define  ODDBG_UDR 107,2616
+#   define  ODDBG_UDR 109,2663
+static inline void  odDebugInit(112,2700
+#   define odDebugInit(118,2826
+
+oddebug.c,115
+static void uartPutc(17,452
+static uchar    hexAscii(23,588
+static void printHex(32,721
+void    odDebug(38,815
+
+smpreaderusb.c,1009
+#define RDLED_PORT_DDR 10,267
+#define RDLED_PORT_OUTPUT 11,302
+#define RDLED_BIT 12,338
+#define WRLED_PORT_DDR 13,370
+#define WRLED_PORT_OUTPUT 14,405
+#define WRLED_BIT 15,441
+#define SELPIN_PORT_DDR 18,494
+#define SELPIN_PORT_OUTPUT 19,530
+#define SELPIN_BIT 20,567
+#define CLKPIN_PORT_DDR 21,600
+#define CLKPIN_PORT_OUTPUT 22,636
+#define CLKPIN_BIT 23,673
+#define DATAPIN_PORT_DDR 24,706
+#define DATAPIN_PORT_OUTPUT 25,742
+#define DATAPIN_PORT_INPUT 26,779
+#define DATAPIN_BIT 27,815
+#define P_DELAY 29,849
+#define cbi(44,1362
+#define sbi(47,1433
+#define analog_reference 50,1492
+void analogRead2(52,1548
+void sendByte(60,1727
+uint8_t readByte(75,2067
+void sendAddress(88,2358
+void startReading(102,2836
+void stopTalking(115,3279
+void startWriting(122,3502
+static uint16_t	currentPosition,138,4131
+static uint16_t	currentPosition, bytesRemaining;138,4131
+usbMsgLen_t usbFunctionSetup(140,4181
+uchar usbFunctionRead(167,5039
+uchar usbFunctionWrite(180,5397
+int main(199,5757
+
+requests.h,150
+#define __REQUESTS_H_INCLUDED__15,495
+#define CUSTOM_RQ_GET_VOLTAGE	17,529
+#define CUSTOM_RQ_READ_DATA	20,615
+#define CUSTOM_RQ_WRITE_DATA	23,680
+
+linux/opendevice.h,393
+#define __OPENDEVICE_H_INCLUDED__24,918
+#define USBOPEN_SUCCESS 63,3329
+#define USBOPEN_ERR_ACCESS 64,3380
+#define USBOPEN_ERR_IO 65,3460
+#define USBOPEN_ERR_NOTFOUND 66,3512
+#define USB_VID_OBDEV_SHARED 71,3636
+#define USB_PID_OBDEV_SHARED_CUSTOM 72,3711
+#define USB_PID_OBDEV_SHARED_HID 73,3797
+#define USB_PID_OBDEV_SHARED_CDCACM 74,3891
+#define USB_PID_OBDEV_SHARED_MIDI 75,3974
+
+linux/smpusb.c,397
+#define strcasecmp 36,1058
+#define CARDSIZE 38,1086
+#define MAXCARDSIZE 39,1112
+#define CHUNK_SIZE 40,1138
+unsigned char       debug 42,1164
+int get_opt_key 44,1196
+int get_opt_int 52,1343
+char *get_opt_string(get_opt_string62,1533
+static void usage(69,1709
+int get_voltage(83,2383
+int compare_buffers(108,3144
+int output_buffer(130,3831
+int input_buffer(142,4112
+int main(154,4391
+
+linux/opendevice.c,219
+#define MATCH_SUCCESS	22,612
+#define MATCH_FAILED	23,638
+#define MATCH_ABORT	24,663
+static int  _shellStyleMatch(27,785
+static int shellStyleMatch(77,2406
+int usbGetStringAscii(86,2689
+int usbOpenDevice(116,3692
+
+windows/stdafx.h,0
